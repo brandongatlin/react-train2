@@ -55,21 +55,21 @@ const TrainInput = (props)=> {
                 <Col md={3}>
                     <FormGroup>
                         <Label for='trainName'>Train</Label>
-                        <Input valid={trainName.length > 5 ? true : false} value={trainName} type='text' name='trainName' id='trainName' placeholder='New Train Name' 
+                        <Input valid={trainName.length > 4 ? true : false} value={trainName} type='text' name='trainName' id='trainName' placeholder='New Train Name' 
                             onChange={ (e) => { setTrainName(e.currentTarget.value); checkForm() } }/>
                     </FormGroup>
                 </Col>
                 <Col md={3}>
                     <FormGroup>
                         <Label for='trainDestination'>Destination</Label>
-                        <Input valid={ trainDestination.length > 5 ? true : false } value={trainDestination} type='text' name='trainDestination' id='trainDestination' placeholder='New Train Destination' 
+                        <Input valid={ trainDestination.length > 3 ? true : false } value={trainDestination} type='text' name='trainDestination' id='trainDestination' placeholder='New Train Destination' 
                             onChange={ (e) => { setTrainDestination(e.currentTarget.value); checkForm()}}/>
                     </FormGroup>
                 </Col>
                 <Col md={2}>
                     <FormGroup>
                         <Label for='trainFrequency'>Frequency (minutes)</Label>
-                        <Input valid={ trainFrequency > 0 ? true : false } value={trainFrequency} type='number' name='trainFrequency' id='trainFrequency' placeholder='New Train Frequency' 
+                        <Input valid={ trainFrequency > 0 && trainFrequency <= 60 ? true : false } value={trainFrequency} type='number' name='trainFrequency' id='trainFrequency' placeholder='New Train Frequency' 
                             onChange={ (e) => { setTrainFrequency(e.currentTarget.value); checkForm()}}/>
                     </FormGroup>
                 </Col>

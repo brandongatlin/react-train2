@@ -46,12 +46,16 @@ const Board = (props) => {
                             const minutesAway = train.trainFrequency - remainder;
                             let nextMinutes = minutesAway + parseInt(nowMinutes);
                             let nextHour = nowHour.replace(':', '');
+
                             if(nextMinutes > 59){
                                 nextHour = parseInt(nextHour) + 1;
                                 nextMinutes = nextMinutes - 60;
                             }
                             if(nextMinutes === 0){
-                                nextMinutes = "00";
+                                nextMinutes = '00';
+                            }
+                            if(nextMinutes.toString().length === 1){
+                                nextMinutes = `0${nextMinutes}`
                             }
                             train.wait = minutesAway;
                             train.next = `${nextHour}:${nextMinutes}`
